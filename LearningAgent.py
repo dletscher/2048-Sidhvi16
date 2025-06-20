@@ -20,8 +20,8 @@ class Player(BasePlayer):
 		
 	def loadData(self, filename):
 		print('Loading data')
-		with open(filename, 'rb') as dataFile:
-			self._valueLook = pickle.load(dataFile)
+        	with open(filename, 'rb') as dataFile:
+			self._valueTable = pickle.load(dataFile)
 		
 	def saveData(self, filename):
 		print('Saving data')
