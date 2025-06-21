@@ -36,6 +36,7 @@ if __name__ == '__main__':
 	parser.add_argument('-g', type=int, help="size of graphics window")
 	parser.add_argument('-t', type=float, help="time delay")
 	parser.add_argument('-d', type=str, help="data file")
+	parser.add_argument("--lr", type=float, default=0.001, help="Learning rate")
 	args = parser.parse_args()
 
 	try:
@@ -45,7 +46,8 @@ if __name__ == '__main__':
 		sys.exit()
 
 	timeLimit = args.time_limit
-	agent = agentModule.Player(timeLimit)
+	agent = agentModule.Player(timeLimit, learning_rate=args.lr)
+
 
 	if args.g:
 		from Graphics import *
