@@ -3,7 +3,7 @@ from Game2048 import *
 class Player(BasePlayer):
     def __init__(self, timeLimit, learning_rate=0.001):
         super().__init__(timeLimit)
-        self.learning_rate = learning_rate  # store it or ignore it
+        self.learning_rate = learning_rate  
         self.node_count = 0
         self.parent_count = 0
         self.child_count = 0
@@ -131,8 +131,6 @@ class Player(BasePlayer):
             for r in range(3):
                 smoothness_score -= abs(board[r][c] - board[r+1][c])
         smoothness_score *= 30
-
-        # Merge potential: reward immediate merge opportunities.
         merge_score = 0
         for r in range(4):
             for c in range(3):
